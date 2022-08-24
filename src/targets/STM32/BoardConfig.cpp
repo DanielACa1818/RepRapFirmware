@@ -973,7 +973,7 @@ void BoardConfig::Diagnostics(MessageType mtype) noexcept
                                             (unsigned)((SCB->CPUID >> 20) & 0x0F), (unsigned)(SCB->CPUID & 0x0F));
     MessageF(mtype, "\n== RAM ==\n");
     MessageF(mtype, "RAM start 0x%x end 0x%x\n", (unsigned)&_sdata, (unsigned)&_estack);
-#if STM32F4
+#if STM32F4 && !STM32F446
     MessageF(mtype, "CCMRAM start 0x%x end 0x%x\n", (unsigned)&_sccmram, (unsigned)&_ccmramend);
 #elif STM32H7
     MessageF(mtype, "No cache RAM 1 start 0x%x end 0x%x\n", (unsigned)&_nocache_ram_start, (unsigned)&_nocache_ram_end);
