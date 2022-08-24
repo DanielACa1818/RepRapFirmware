@@ -2,6 +2,11 @@
 #include "Platform/Platform.h"
 #include "BoardConfig.h"
 #include "Boards/BIQU_SKR.h"
+#if !STM32F446
+#include "Boards/FLY.h"
+#include "Boards/FYSETC.h"
+#include "Boards/Generic.h"
+#endif
 //Known boards with built in stepper configurations and pin table
 // Note the generic entry must be the first entry in the table.
 constexpr BoardEntry LPC_Boards[] =
