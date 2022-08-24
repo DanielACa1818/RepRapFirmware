@@ -323,9 +323,11 @@ void Tasks::Diagnostics(MessageType mtype) noexcept
 		p.MessageF(mtype, "Never used RAM %d, free system stack %d words\n", GetNeverUsedRam(), GetHandlerFreeStack()/4);
 #if STM32F4
 		{
+#if !STM32F446
 			size_t ccmStatic, ccmUsed, ccmFree;
 			CoreCCMRAMUsage(ccmStatic, ccmUsed, ccmFree);
 			p.MessageF(mtype, "CCMRam static ram: %d dynamic ram: %d free ram %d\n", ccmStatic, ccmUsed, ccmFree);
+#endif
 		}
 #endif
 	}	// end memory stats scope

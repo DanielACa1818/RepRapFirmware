@@ -80,7 +80,6 @@
 #define SUPPORT_ROLAND		             0	// set nonzero to support Roland mill
 #define SUPPORT_SCANNER		             0	// set nonzero to support FreeLSS scanners
 #define SUPPORT_IOBITS		             0	// set to support P parameter in G0/G1 commands
-#define SUPPORT_DHT_SENSOR	             1	// set nonzero to support DHT temperature/humidity sensors
 #define SUPPORT_WORKPLACE_COORDINATES    1
 #define SUPPORT_LASER                    1
 
@@ -91,10 +90,22 @@
 #define SUPPORT_LED_STRIPS               1
 #define SUPPORT_BITBANG_NEOPIXEL         1
 #define SUPPORT_DMA_NEOPIXEL             1
-#define SUPPORT_ASYNC_MOVES		         1
 #define ALLOCATE_DEFAULT_PORTS           0
-#define TRACK_OBJECT_NAMES		         1
 #define HAS_DEFAULT_PSON_PIN             0
+
+// functions disabled to save space
+#define SUPPORT_DHT_SENSOR               0
+#define SUPPORT_ASYNC_MOVES              0
+#define TRACK_OBJECT_NAMES               0
+#define SUPPORT_PANELDUE_FLASH           0
+
+// kinematics disabled to save space
+#define SUPPORT_LINEAR_DELTA             0
+#define SUPPORT_ROTARY_DELTA             0
+#define SUPPORT_POLAR                    0
+#define SUPPORT_SCARA                    0
+#define SUPPORT_FIVEBARSCARA             0
+#define SUPPORT_HANGPRINTER              0
 
 #if defined(LPC_NETWORKING)
     //LPC Ethernet
@@ -110,7 +121,7 @@
 
 #elif defined(ESP8266WIFI)
     #define HAS_RTOSPLUSTCP_NETWORKING   0
-    #define SUPPORT_12864_LCD            1
+    #define SUPPORT_12864_LCD            0
     #define HAS_WIFI_NETWORKING          1
     #define HAS_MASS_STORAGE             1
     #define SUPPORT_TELNET               0

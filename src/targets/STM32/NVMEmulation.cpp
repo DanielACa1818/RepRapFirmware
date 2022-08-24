@@ -13,7 +13,21 @@
 // This protection also means that the H7 does not seem to like writing to flash
 // lines that have already been written to. Because of the alignment of the
 // postmortum data this means that we need to use a new 512byte block for each write.
+#if STM32F446
+void NVMEmulationRead(void *data, uint32_t dataLength)
+{
+}
 
+bool NVMEmulationErase()
+{
+	return false;
+}
+
+bool NVMEmulationWrite(const void *data, uint32_t dataLength)
+{
+	return false;
+}
+#else
 #if STM32H7
 // We write in 256 bit alignment!
 #define IS_FLASH_ALIGNED(addr) (((uint32_t)(addr) & (32-1)) == 0)
@@ -319,4 +333,4 @@ bool NVMEmulationWrite(const void *data, uint32_t dataLength){
     FlashWrite((uint32_t)GetSlotPtr(currentSlot), (const uint8_t*)data, dataLength);
     return true;  
 }
-
+#endif
