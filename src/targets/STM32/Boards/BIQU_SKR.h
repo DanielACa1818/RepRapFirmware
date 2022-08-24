@@ -983,5 +983,5 @@ constexpr BoardDefaults btt_octopuspro_Defaults = {
 #endif
 };
 #endif
-
+#endif
 #endif
