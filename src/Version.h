@@ -14,7 +14,7 @@
 # ifdef USE_CAN0
 #  define VERSION_SUFFIX	"(CAN0)"
 # else
-#  define VERSION_SUFFIX	""
+#  define VERSION_SUFFIX	"(406)"
 # endif
 # define VERSION MAIN_VERSION VERSION_SUFFIX
 #endif
