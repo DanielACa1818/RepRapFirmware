@@ -93,12 +93,16 @@
 #define ALLOCATE_DEFAULT_PORTS           0
 #define HAS_DEFAULT_PSON_PIN             0
 
+#if !STM32F446
+#define SUPPORT_DHT_SENSOR	             1
+#define SUPPORT_ASYNC_MOVES		         1
+#define TRACK_OBJECT_NAMES		         1
+#else
 // functions disabled to save space
 #define SUPPORT_DHT_SENSOR               0
 #define SUPPORT_ASYNC_MOVES              0
 #define TRACK_OBJECT_NAMES               0
 #define SUPPORT_PANELDUE_FLASH           0
-
 // kinematics disabled to save space
 #define SUPPORT_LINEAR_DELTA             0
 #define SUPPORT_ROTARY_DELTA             0
@@ -106,6 +110,7 @@
 #define SUPPORT_SCARA                    0
 #define SUPPORT_FIVEBARSCARA             0
 #define SUPPORT_HANGPRINTER              0
+#endif
 
 #if defined(LPC_NETWORKING)
     //LPC Ethernet
@@ -121,7 +126,11 @@
 
 #elif defined(ESP8266WIFI)
     #define HAS_RTOSPLUSTCP_NETWORKING   0
+#if !STM32F446
+    #define SUPPORT_12864_LCD            1
+#else
     #define SUPPORT_12864_LCD            0
+#endif
     #define HAS_WIFI_NETWORKING          1
     #define HAS_MASS_STORAGE             1
     #define SUPPORT_TELNET               0
